@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+      <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        function ShowAlert()
+        {
+            navigator.notification.alert ("ini pesanya",null,"ini judulnya","ok");
+        }
+
+        function ShowConfirm()
+        {
+            navigator.notification.confirm ("ini pesan pertanyaanya",onConfirmCallback,"jawabanya","ya","gak");
+        }
+
+        function onConfirmCallback(btnIndex)
+        {
+            if (btnIndex==1) {
+                navigator.notification.alert ("dirimu meilih ya",null,"ini judul","ok");
+            }
+            else {
+                navigator.notification.alert ("dirimu meilih gak",null,"ini judul","ok");
+            }
+        }
+
+        function ShowPrompt()
+        {
+            navigator.notification.prompt ("tulis apa wae",onPromptCallback,"Judul",['ok','batal'],"ini kayak placeholder");
+        }
+        function onPromptCallback(result)
+        {
+            navigator.notification.alert ("ini pesanya",result,"ini judulnya","ok");
+        }
+    </script>
+  </head>
+  <body>
+        <div>
+            <input class="button" type="button" value="Show Alert" onclick="ShowAlert();"/>
+            <input class="button" type="button" value="Show Confirm" onclick="ShowConfirm();"/>
+            <input class="button" type="button" value="Show Prompt" onclick="ShowPrompt();"/>
+        </div>  
+  </body>
+</html>
